@@ -1,0 +1,168 @@
+import java.util.Scanner;
+
+public class CharacterCreator {
+        private static String characterName;
+        public static void main(String[] args) {
+    //Enter username code here
+            Scanner Name = new Scanner(System.in);
+            System.out.println("Enter your username: ");
+            System.out.println(("Your username is ") + Name.next());
+            Scanner character = new Scanner(System.in);
+            System.out.println("Does your character have a name? (Yes-1, No-0): ");
+            int bool = character.nextInt();
+            if(bool == 1) {
+                    System.out.println(block1());
+            } else{
+                if(bool == 0){
+                    System.out.println(block2());
+                } else {
+                    while(bool != 1 && bool != 0) {
+                        System.out.println("Please reenter your answer, it was typed incorrectly: ");
+                        bool = character.nextInt();}
+                        System.out.println(block2());
+
+
+                }
+            }
+
+        } //Functions
+        public static String Charname() {
+            Scanner charactername = new Scanner(System.in);
+            System.out.println("Enter your character name: ");
+            String characterName = charactername.next();
+            System.out.println(("Your character name is ") + characterName);
+            return characterName;
+        }
+
+        public static String Charname2() {
+            String[] arrGirl = {"Vera", "Kara", "Virginia", "Vanessa", "Avery", "Helen"};
+            String[] arrBoy = {"Linden", "Oliver", "Christian", "Piers", "Mike"};
+            Scanner Names = new Scanner(System.in);
+            System.out.println("Do you want name suggestions? (Yes-1, No-0): ");
+            int bool1 = Names.nextInt();
+            if (bool1 == 1) {
+                Scanner Gender = new Scanner(System.in);
+                System.out.println("What gender is your character? (Boy or Girl): ");
+                String gender = Gender.next();
+                if (gender.equals("Boy") | gender.equals("boy")) {
+                    System.out.println("Here are some name suggestions: ");
+                    for (String i : arrBoy) {
+                        System.out.print(i + " ");
+                    }
+                    System.out.println();
+                    Scanner nameBoy = new Scanner(System.in);
+                    System.out.println("Please choose a name: ");
+                    return nameBoy.next();
+
+                } else {
+                    if (gender.equals("girl") | gender.equals("Girl")) {
+                        System.out.println("Here are some name suggestions: ");
+                        for (String i : arrGirl) {
+                            System.out.print(i + " ");
+                        }
+                        System.out.println();
+                        Scanner nameGirl = new Scanner(System.in);
+                        System.out.println("Please choose a name: ");
+                        return nameGirl.next();
+
+
+                    }
+                }
+            }else {
+               characterName = Charname();}
+            return null;
+        }
+        public static String role() {
+            Scanner input = new Scanner(System.in);
+            System.out.println("When creating a good character you should know");
+            System.out.println("whether the character is an antagonist, protagonist,");
+            System.out.println("or tertiary character. ");
+            System.out.println("A protagonist is a leading character, much like a main character.");
+            System.out.println("An antagonist is a character that opposes another character, an antagonist could be a villain.");
+            System.out.println("A tertiary character is a side character.");
+            System.out.println("Which character type is your character?: ");
+            String charactertype = input.next();
+            while (!charactertype.equals("protagonist") && !charactertype.equals("tertiary") && !charactertype.equals("antagonist") && !charactertype.equals("Tertiary") && !charactertype.equals("Antagonist") && !charactertype.equals("Protagonist")) {
+                System.out.println("Please choose a character type, the one you have entered is not applicable: ");
+                charactertype = input.next();
+            }
+            return charactertype;
+            }
+        public static String Eyes() {
+            Scanner input = new Scanner(System.in);
+            System.out.println("What color are " + characterName + "'s eyes?: ");
+            String color = input.next();
+            return color;
+        }
+        public static String HairCol() {
+            Scanner input = new Scanner(System.in);
+            System.out.println("What color is " + characterName + "'s hair?: ");
+            String haircolor = input.next();
+            return haircolor;
+        }
+        public static String HairLen() {
+            Scanner input = new Scanner(System.in);
+            System.out.println("What length is " + characterName + "'s hair? (Short, Medium, or Long?): ");
+            String HairLength = input.next();
+            while(true) {
+                if (HairLength.equals("short") || HairLength.equals("long") || HairLength.equals("medium") || HairLength.equals("Long")
+                        || HairLength.equals("Short") || HairLength.equals("Medium")) break;
+            }
+            System.out.println("Please reenter the hair length, it was typed incorrectly: ");
+            HairLength = input.next();
+            return HairLength;
+            }
+        public static String personality() {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Describe the personality of " + characterName + " in 1 word: ");
+            String personality = input.next();
+            System.out.println("Describe the personality of " + characterName + " in another word: ");
+            String personality2 = input.next();
+            System.out.println("Describe the personality of " + characterName + " in 1 last word: ");
+            String personality3 = input.next();
+            return characterName + " is a " + personality + " " + personality2 + " and " + personality3;
+        }
+        public static int Age(){
+            Scanner input = new Scanner(System.in);
+            System.out.println("What is " + characterName + "'s age?: ");
+            int age;
+            age = input.nextInt();
+            return age;
+        }
+        public static String antag(){
+            Scanner input = new Scanner(System.in);
+            System.out.println("Who is your characters biggest antagonist?");
+            String antag = input.next();
+            return antag;
+        }
+        public static String block1() {
+            characterName = Charname();
+            String RoleName = role();
+            String Eye = Eyes();
+            String Hairlen = HairLen();
+            String Haircol = HairCol();
+            String personality = personality();
+            String antagonist = antag();
+            int age = Age();
+            return characterName + " is a/an " + RoleName + " character that has " + Hairlen +
+                    "and \n" + Haircol + " hair. His/her eyes are " + Eye + ". " + characterName + " is\n"
+                    + age + " years old and " + personality + " person.\n"
+                    + characterName + "'s antagonist is " + antagonist +".";
+        }
+        public static String block2(){
+            characterName =  Charname2();
+            String RoleName = role();
+            String Eye= Eyes();
+            String Hairlen = HairLen();
+            String Haircol = HairCol();
+            String personality= personality();
+            String antagonist = antag();
+            int age = Age();
+            return characterName + " is a/an " + RoleName + " character that has " + Hairlen +
+                    "and \n" + Haircol + " hair. His/her eyes are " + Eye + ". " + characterName + " is\n"
+                    + age + " years old and " + personality + " person.\n"
+                    + characterName + "'s antagonist is " + antagonist +".";
+        }
+
+    }
+
