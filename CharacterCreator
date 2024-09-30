@@ -8,7 +8,7 @@ public class CharacterCreator {
             System.out.println("Enter your username: ");
             System.out.println(("Your username is ") + Name.next());
             Scanner character = new Scanner(System.in);
-            System.out.println("Does your character have a name? (Yes-1, No-0): ");
+            System.out.println("Does your character have a name? (Yes-1, No-0): "); //code for character name
             int bool = character.nextInt();
             if(bool == 1) {
                     System.out.println(block1());
@@ -25,7 +25,7 @@ public class CharacterCreator {
                 }
             }
 
-        } //Functions
+        } //Function for character name
         public static String Charname() {
             Scanner charactername = new Scanner(System.in);
             System.out.println("Enter your character name: ");
@@ -33,7 +33,7 @@ public class CharacterCreator {
             System.out.println(("Your character name is ") + characterName);
             return characterName;
         }
-
+        // function for character name if they want ideas
         public static String Charname2() {
             String[] arrGirl = {"Vera", "Kara", "Virginia", "Vanessa", "Avery", "Helen"};
             String[] arrBoy = {"Linden", "Oliver", "Christian", "Piers", "Mike"};
@@ -71,7 +71,7 @@ public class CharacterCreator {
             }else {
                characterName = Charname();}
             return null;
-        }
+        } //function for character role
         public static String role() {
             Scanner input = new Scanner(System.in);
             System.out.println("When creating a good character you should know");
@@ -87,7 +87,7 @@ public class CharacterCreator {
                 charactertype = input.next();
             }
             return charactertype;
-            }
+            } // functions for character physical traits
         public static String Eyes() {
             Scanner input = new Scanner(System.in);
             System.out.println("What color are " + characterName + "'s eyes?: ");
@@ -111,7 +111,7 @@ public class CharacterCreator {
             System.out.println("Please reenter the hair length, it was typed incorrectly: ");
             HairLength = input.next();
             return HairLength;
-            }
+            } // functions for other traits
         public static String personality() {
             Scanner input = new Scanner(System.in);
             System.out.println("Describe the personality of " + characterName + " in 1 word: ");
@@ -128,13 +128,13 @@ public class CharacterCreator {
             int age;
             age = input.nextInt();
             return age;
-        }
+        } // function for character antagonist
         public static String antag(){
             Scanner input = new Scanner(System.in);
             System.out.println("Who is your characters biggest antagonist?");
             String antag = input.next();
             return antag;
-        }
+        } // functions to print above functions
         public static String block1() {
             characterName = Charname();
             String RoleName = role();
